@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Polymers Seals Solutions</title>
+  <meta name="description" content="Contáctenos para solicitar cotización, consulta técnica o información sobre nuestros productos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logos/logo-main.png" alt="Polymers Seals Solutions" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a></li>
+        <li><a href="productos.html" class="nav-link" data-es="Productos" data-en="Products">Productos</a></li>
+        <li><a href="polykran.html" class="nav-link" data-es="Tecnología POLYKRAN®" data-en="POLYKRAN® Technology">Tecnología POLYKRAN®</a></li>
+        <li><a href="nosotros.html" class="nav-link" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+        <li><a href="contacto.html" class="nav-link active" data-es="Contacto" data-en="Contact">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('es')">ES</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+        <a href="contacto.html" class="btn-nav" data-es="Solicitar Cotización" data-en="Request Quote">Solicitar Cotización</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero-sm">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <div class="page-hero-tag" data-es="CONTACTO" data-en="CONTACT">CONTACTO</div>
+      <h1 class="page-hero-title" data-es="Hablemos de su Aplicación" data-en="Let's Talk About Your Application">Hablemos de su Aplicación</h1>
+      <p class="page-hero-subtitle" data-es="Compártanos sus especificaciones técnicas y le respondemos en menos de 24 horas." data-en="Share your technical specifications and we'll respond in less than 24 hours.">Compártanos sus especificaciones técnicas y le respondemos en menos de 24 horas.</p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO + INFO -->
+  <section class="section contact-section">
+    <div class="container contact-container">
+
+      <!-- FORMULARIO -->
+      <div class="contact-form-wrap fade-in">
+        <h2 class="contact-form-title" data-es="Envíenos un mensaje" data-en="Send us a message">Envíenos un mensaje</h2>
+        <p class="contact-form-subtitle" data-es="Complete el formulario y nuestro equipo técnico le contactará a la brevedad." data-en="Fill out the form and our technical team will contact you shortly.">Complete el formulario y nuestro equipo técnico le contactará a la brevedad.</p>
+
+        <form class="contact-form" id="contactForm">
+          <div class="cf-row">
+            <div class="cf-group">
+              <label class="cf-label" data-es="Nombre completo *" data-en="Full name *">Nombre completo *</label>
+              <input type="text" class="cf-input" id="cfNombre" placeholder="Juan García" required>
+            </div>
+            <div class="cf-group">
+              <label class="cf-label" data-es="Empresa *" data-en="Company *">Empresa *</label>
+              <input type="text" class="cf-input" id="cfEmpresa" placeholder="Empresa S.A." required>
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label class="cf-label" data-es="Correo electrónico *" data-en="Email *">Correo electrónico *</label>
+              <input type="email" class="cf-input" id="cfEmail" placeholder="juan@empresa.com" required>
+            </div>
+            <div class="cf-group">
+              <label class="cf-label" data-es="Teléfono" data-en="Phone">Teléfono</label>
+              <input type="tel" class="cf-input" id="cfTelefono" placeholder="+57 300 000 0000">
+            </div>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" data-es="Producto o aplicación de interés" data-en="Product or application of interest">Producto o aplicación de interés</label>
+            <select class="cf-input cf-select" id="cfProducto">
+              <option value="" data-es="Seleccionar..." data-en="Select...">Seleccionar...</option>
+              <option value="wireline" data-es="Wireline & Slickline" data-en="Wireline & Slickline">Wireline & Slickline</option>
+              <option value="workover" data-es="Workover & Well Control" data-en="Workover & Well Control">Workover & Well Control</option>
+              <option value="flowline" data-es="Flowline, Pipeline & Swabbing" data-en="Flowline, Pipeline & Swabbing">Flowline, Pipeline & Swabbing</option>
+              <option value="veepacking" data-es="Vee Packing Systems" data-en="Vee Packing Systems">Vee Packing Systems</option>
+              <option value="polykran" data-es="Tecnología POLYKRAN®" data-en="POLYKRAN® Technology">Tecnología POLYKRAN®</option>
+              <option value="custom" data-es="Desarrollo a medida / Ingeniería inversa" data-en="Custom development / Reverse engineering">Desarrollo a medida / Ingeniería inversa</option>
+              <option value="otro" data-es="Otro" data-en="Other">Otro</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" data-es="Mensaje *" data-en="Message *">Mensaje *</label>
+            <textarea class="cf-input cf-textarea" id="cfMensaje" placeholder="Describa su aplicación, condiciones de operación o consulta técnica..." required></textarea>
+          </div>
+          <button type="submit" class="cf-submit" id="cfSubmit">
+            <span class="cf-submit-text" data-es="Enviar Solicitud" data-en="Send Request">Enviar Solicitud</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="cf-success" id="cfSuccess" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-es="¡Mensaje enviado! Le contactaremos pronto." data-en="Message sent! We'll contact you soon.">¡Mensaje enviado! Le contactaremos pronto.</span>
+          </div>
+          <div class="cf-error" id="cfError" style="display:none">
+            <span data-es="Error al enviar. Por favor escríbanos directamente a info@polymers-seals.com" data-en="Error sending. Please write directly to info@polymers-seals.com">Error al enviar. Por favor escríbanos directamente a info@polymers-seals.com</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- INFO -->
+      <div class="contact-info fade-in">
+        <div class="ci-block">
+          <h3 class="ci-title" data-es="Información de contacto" data-en="Contact information">Información de contacto</h3>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-es="Correo electrónico" data-en="Email">Correo electrónico</div>
+              <a href="mailto:info@polymers-seals.com" class="ci-value">info@polymers-seals.com</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.37a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</div>
+              <a href="https://wa.me/573202599516" target="_blank" class="ci-value">(+57) 320 259 9516</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-es="Ubicación" data-en="Location">Ubicación</div>
+              <span class="ci-value">Bogotá, Colombia</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ci-block ci-response">
+          <h4 class="ci-response-title" data-es="Tiempo de respuesta" data-en="Response time">Tiempo de respuesta</h4>
+          <p data-es="Respondemos todas las consultas técnicas en menos de 24 horas hábiles. Para urgencias operativas, contáctenos directamente por WhatsApp." data-en="We respond to all technical inquiries in less than 24 business hours. For operational emergencies, contact us directly via WhatsApp.">Respondemos todas las consultas técnicas en menos de 24 horas hábiles. Para urgencias operativas, contáctenos directamente por WhatsApp.</p>
+          <a href="https://wa.me/573202599516" target="_blank" class="ci-whatsapp-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.525 5.845L.057 23.492a.5.5 0 0 0 .614.65l5.758-1.51A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.874 9.874 0 0 1-5.032-1.373l-.36-.214-3.733.979.997-3.645-.235-.374A9.859 9.859 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>
+            <span data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="ci-block ci-products">
+          <h4 class="ci-response-title" data-es="¿Qué necesita cotizar?" data-en="What do you need to quote?">¿Qué necesita cotizar?</h4>
+          <div class="ci-product-links">
+            <a href="productos.html#wireline">Wireline & Slickline</a>
+            <a href="productos.html#workover">Workover & Well Control</a>
+            <a href="productos.html#flowline">Flowline & Pipeline</a>
+            <a href="productos.html#veepacking">Vee Packing Systems</a>
+            <a href="polykran.html">Tecnología POLYKRAN®</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="images/logos/logo-white.png" alt="Polymers Seals Solutions" class="footer-logo">
+        <p class="footer-tagline">Engineered Sealing Solutions<br>for the Oil & Gas Industry</p>
+      </div>
+      <div class="footer-nav">
+        <h5 class="footer-nav-title" data-es="Navegación" data-en="Navigation">Navegación</h5>
+        <ul>
+          <li><a href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+          <li><a href="productos.html" data-es="Productos" data-en="Products">Productos</a></li>
+          <li><a href="polykran.html">Tecnología POLYKRAN®</a></li>
+          <li><a href="nosotros.html" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+          <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h5 class="footer-nav-title" data-es="Productos" data-en="Products">Productos</h5>
+        <ul>
+          <li><a href="productos.html#wireline">Wireline & Slickline</a></li>
+          <li><a href="productos.html#workover">Workover & Well Control</a></li>
+          <li><a href="productos.html#flowline">Flowline & Pipeline</a></li>
+          <li><a href="productos.html#veepacking">Vee Packing Systems</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5 class="footer-nav-title" data-es="Contacto" data-en="Contact">Contacto</h5>
+        <p><a href="mailto:info@polymers-seals.com">info@polymers-seals.com</a></p>
+        <p><a href="tel:+573202599516">(+57) 320 259 9516</a></p>
+        <p>Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2025 Polymers Seals Solutions S.A.S. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+        <div class="footer-lang">
+          <button onclick="setLang('es')" class="footer-lang-btn">ES</button>
+          <span>|</span>
+          <button onclick="setLang('en')" class="footer-lang-btn">EN</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-actions">
+    <div class="contact-widget" id="contactWidget">
+      <div class="widget-header">
+        <span data-es="Escríbenos" data-en="Write to us">Escríbenos</span>
+        <button class="widget-close" onclick="toggleWidget()">✕</button>
+      </div>
+      <form class="widget-form" onsubmit="submitWidget(event)">
+        <input type="text" class="widget-input" placeholder="Nombre / Name" required>
+        <input type="email" class="widget-input" placeholder="Email" required>
+        <textarea class="widget-input widget-textarea" placeholder="Mensaje / Message" required></textarea>
+        <button type="submit" class="widget-submit" data-es="Enviar" data-en="Send">Enviar</button>
+      </form>
+    </div>
+    <button class="fab fab-contact" onclick="toggleWidget()" aria-label="Contacto rápido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <a href="https://wa.me/573202599516" target="_blank" class="fab fab-whatsapp" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.525 5.845L.057 23.492a.5.5 0 0 0 .614.65l5.758-1.51A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.874 9.874 0 0 1-5.032-1.373l-.36-.214-3.733.979.997-3.645-.235-.374A9.859 9.859 0 0 1 2.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>
+    </a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
