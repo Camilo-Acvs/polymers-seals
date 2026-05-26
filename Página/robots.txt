@@ -1,0 +1,7 @@
+# robots.txt — Polymers Seals Solutions
+# Permite el rastreo completo del sitio por todos los buscadores
+User-agent: *
+Allow: /
+
+# Ubicación del sitemap
+Sitemap: https://polymers-seals.com/sitemap.xml
