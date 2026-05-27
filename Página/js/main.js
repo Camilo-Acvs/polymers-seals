@@ -29,7 +29,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 // Close menu on resize to desktop
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 1100 && navLinks.classList.contains('open')) {
+  if (window.innerWidth > 880 && navLinks.classList.contains('open')) {
     navLinks.classList.remove('open');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
