@@ -51,31 +51,28 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 fadeEls.forEach(el => observer.observe(el));
 
-// ── LANGUAGE TOGGLE ──
-let currentLang = localStorage.getItem('pss-lang') || 'es';
+// ── LANGUAGE (URL-based: español en / · inglés en /en/) ──
+// Cada idioma es una página real e indexable. El botón ES/EN navega
+// a la versión correspondiente (mejor para SEO internacional que el swap JS).
+const isEN = location.pathname.replace(/\\/g, '/').toLowerCase().includes('/en/');
 
 function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('pss-lang', lang);
-  applyLang();
+  let page = location.pathname.split('/').pop();
+  if (!page) page = 'index.html';
+  if (lang === 'en' && !isEN) {
+    window.location.href = 'en/' + page;
+  } else if (lang === 'es' && isEN) {
+    window.location.href = '../' + page;
+  }
 }
 
-function applyLang() {
-  const elements = document.querySelectorAll('[data-es][data-en]');
-  elements.forEach(el => {
-    const text = el.getAttribute(`data-${currentLang}`);
-    if (text) el.textContent = text;
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.lang = isEN ? 'en' : 'es';
+  document.querySelectorAll('.lang-btn, .footer-lang-btn').forEach(btn => {
+    const t = btn.textContent.trim().toLowerCase();
+    btn.classList.toggle('active', (t === 'en') === isEN);
   });
-  // Update lang buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase() === currentLang);
-  });
-  // Update html lang attr
-  document.documentElement.lang = currentLang;
-}
-
-// Apply on load
-document.addEventListener('DOMContentLoaded', applyLang);
+});
 
 // ── CONTACT WIDGET ──
 const contactWidget = document.getElementById('contactWidget');

@@ -1,73 +1,76 @@
 /* ══════════════════════════════════════
    POLYMERS SEALS SOLUTIONS
-   Contact Form — EmailJS Integration
+   Formulario de contacto — EmailJS
    ══════════════════════════════════════
-   
-   SETUP INSTRUCTIONS:
-   1. Create a free account at https://www.emailjs.com
-   2. Create an Email Service (Gmail, Outlook, etc.)
-   3. Create an Email Template with these variables:
-      {{from_name}}, {{from_email}}, {{company}},
-      {{phone}}, {{product}}, {{message}}
-   4. Replace the three placeholders below with your IDs
+   Usa window.EMAILJS_CONFIG (js/emailjs-config.js) — mismo método y
+   mismos parámetros que Rubbercav, para que una sola cuenta sirva a ambos.
+   Variables de plantilla: from_name, from_company, reply_to, phone, message
 */
+(function () {
+  var cfg = window.EMAILJS_CONFIG || {};
 
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // From EmailJS Account > API Keys
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // From EmailJS Email Services
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // From EmailJS Email Templates
+  // Cargar el SDK de EmailJS
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = function () { if (cfg.publicKey) { try { emailjs.init({ publicKey: cfg.publicKey }); } catch (e) {} } };
+  document.head.appendChild(s);
 
-// Load EmailJS
-(function() {
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-  script.onload = () => emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  document.head.appendChild(script);
-})();
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var submitBtn  = document.getElementById('cfSubmit');
+  var successMsg = document.getElementById('cfSuccess');
+  var errorMsg   = document.getElementById('cfError');
 
-const form = document.getElementById('contactForm');
-const submitBtn = document.getElementById('cfSubmit');
-const successMsg = document.getElementById('cfSuccess');
-const errorMsg = document.getElementById('cfError');
+  function isConfigured() {
+    return typeof emailjs !== 'undefined' &&
+      cfg.publicKey && cfg.serviceId && cfg.templateId &&
+      cfg.publicKey.indexOf('YOUR_') !== 0;
+  }
 
-if (form) {
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var en = document.documentElement.lang === 'en';
 
-    const nombre   = document.getElementById('cfNombre').value.trim();
-    const empresa  = document.getElementById('cfEmpresa').value.trim();
-    const email    = document.getElementById('cfEmail').value.trim();
-    const telefono = document.getElementById('cfTelefono').value.trim();
-    const producto = document.getElementById('cfProducto').value;
-    const mensaje  = document.getElementById('cfMensaje').value.trim();
+    var nombre   = document.getElementById('cfNombre').value.trim();
+    var empresa  = document.getElementById('cfEmpresa').value.trim();
+    var email    = document.getElementById('cfEmail').value.trim();
+    var telefono = document.getElementById('cfTelefono').value.trim();
+    var prodSel  = document.getElementById('cfProducto');
+    var producto = prodSel && prodSel.value ? prodSel.options[prodSel.selectedIndex].text : '';
+    var mensaje  = document.getElementById('cfMensaje').value.trim();
 
-    // Loading state
     submitBtn.disabled = true;
-    submitBtn.querySelector('.cf-submit-text').textContent =
-      document.documentElement.lang === 'en' ? 'Sending...' : 'Enviando...';
+    submitBtn.querySelector('.cf-submit-text').textContent = en ? 'Sending...' : 'Enviando...';
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
-    const templateParams = {
-      from_name: nombre,
-      from_email: email,
-      company: empresa,
-      phone: telefono || '—',
-      product: producto || '—',
-      message: mensaje,
-      reply_to: email,
+    var fullMessage =
+      (producto ? ((en ? 'Product/application of interest: ' : 'Producto/aplicación de interés: ') + producto + '\n\n') : '') +
+      mensaje;
+
+    var params = {
+      from_name:    nombre,
+      from_company: empresa,
+      reply_to:     email,
+      phone:        telefono || '—',
+      message:      fullMessage,
     };
 
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      successMsg.style.display = 'flex';
-      form.reset();
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      errorMsg.style.display = 'flex';
-    } finally {
+    function finish(ok) {
       submitBtn.disabled = false;
-      submitBtn.querySelector('.cf-submit-text').textContent =
-        document.documentElement.lang === 'en' ? 'Send Request' : 'Enviar Solicitud';
+      submitBtn.querySelector('.cf-submit-text').textContent = en ? 'Send Request' : 'Enviar Solicitud';
+      (ok ? successMsg : errorMsg).style.display = 'flex';
+      if (ok) form.reset();
+    }
+
+    if (isConfigured()) {
+      emailjs.send(cfg.serviceId, cfg.templateId, params)
+        .then(function () { finish(true); })
+        .catch(function (err) { console.error('EmailJS error:', err); finish(false); });
+    } else {
+      // EmailJS aún sin claves → mostrar mensaje de error que guía al correo directo
+      console.warn('EmailJS no configurado: edite js/emailjs-config.js con las claves reales.');
+      finish(false);
     }
   });
-}
+})();
