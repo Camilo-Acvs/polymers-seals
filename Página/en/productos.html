@@ -70,6 +70,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="nav-link" data-es="Inicio" data-en="Home">Home</a></li>
         <li><a href="productos.html" class="nav-link active" data-es="Productos" data-en="Products">Products</a></li>
+        <li><a href="materiales.html" class="nav-link" data-es="Materiales" data-en="Materials">Materials</a></li>
         <li><a href="polykran.html" class="nav-link" data-es="Tecnología POLYKRAN®" data-en="POLYKRAN® Technology">POLYKRAN® Technology</a></li>
         <li><a href="nosotros.html" class="nav-link" data-es="Nosotros" data-en="About Us">About Us</a></li>
         <li><a href="contacto.html" class="nav-link" data-es="Contacto" data-en="Contact">Contact</a></li>
@@ -104,6 +105,22 @@
           <a href="#flowline" class="pnt" data-es="Flowline &amp; Pipeline" data-en="Flowline &amp; Pipeline">Flowline &amp; Pipeline</a>
           <a href="#veepacking" class="pnt" data-es="Vee Packing Systems" data-en="Vee Packing Systems">Vee Packing Systems</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SEARCH -->
+  <section class="product-search-bar">
+    <div class="container">
+      <div class="product-search">
+        <div class="ps-search-wrap">
+          <span class="ps-search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+          </span>
+          <input type="search" id="productSearch" class="ps-search-input" autocomplete="off" placeholder="Search product, application or material…" aria-label="Search products">
+          <button type="button" class="ps-search-clear" id="searchClear" aria-label="Clear search">✕</button>
+        </div>
+        <div class="ps-search-meta" id="searchMeta" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -400,6 +417,15 @@
     </div>
   </section>
 
+  <!-- NO RESULTS (search) -->
+  <div class="ps-no-results" id="searchNoResults">
+    <div class="container">
+      <p class="ps-nr-title">No results</p>
+      <p class="ps-nr-text">We couldn't find a product with that name. Check the spelling or describe your application — we develop solutions from a sample, drawing or specification.</p>
+      <a href="contacto.html" class="btn-nav">Contact Us</a>
+    </div>
+  </div>
+
   <!-- CTA -->
   <section class="cta-section fade-in">
     <div class="container cta-container">
@@ -424,6 +450,7 @@
         <ul>
           <li><a href="index.html" data-es="Inicio" data-en="Home">Home</a></li>
           <li><a href="productos.html" data-es="Productos" data-en="Products">Products</a></li>
+          <li><a href="materiales.html" data-es="Materiales" data-en="Materials">Materials</a></li>
           <li><a href="polykran.html">Tecnología POLYKRAN®</a></li>
           <li><a href="nosotros.html" data-es="Nosotros" data-en="About Us">About Us</a></li>
           <li><a href="contacto.html" data-es="Contacto" data-en="Contact">Contact</a></li>
@@ -479,6 +506,7 @@
   </div>
 
   <script src="../js/main.js"></script>
+  <script src="../js/search.js"></script>
 
 
 
