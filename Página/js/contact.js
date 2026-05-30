@@ -1,19 +1,13 @@
 /* ══════════════════════════════════════
    POLYMERS SEALS SOLUTIONS
-   Formulario de contacto — EmailJS
+   Formulario de contacto — FormSubmit
    ══════════════════════════════════════
-   Usa window.EMAILJS_CONFIG (js/emailjs-config.js) — mismo método y
-   mismos parámetros que Rubbercav, para que una sola cuenta sirva a ambos.
-   Variables de plantilla: from_name, from_company, reply_to, phone, message
+   Usa window.FORM_CONFIG (js/form-config.js). El visitante pulsa
+   "Enviar" y el mensaje llega al correo configurado, sin abrir nada y
+   sin backend. Para cambiar el correo destino, ver js/form-config.js.
 */
 (function () {
-  var cfg = window.EMAILJS_CONFIG || {};
-
-  // Cargar el SDK de EmailJS
-  var s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-  s.onload = function () { if (cfg.publicKey) { try { emailjs.init({ publicKey: cfg.publicKey }); } catch (e) {} } };
-  document.head.appendChild(s);
+  var cfg = window.FORM_CONFIG || {};
 
   var form = document.getElementById('contactForm');
   if (!form) return;
@@ -21,56 +15,59 @@
   var successMsg = document.getElementById('cfSuccess');
   var errorMsg   = document.getElementById('cfError');
 
-  function isConfigured() {
-    return typeof emailjs !== 'undefined' &&
-      cfg.publicKey && cfg.serviceId && cfg.templateId &&
-      cfg.publicKey.indexOf('YOUR_') !== 0;
+  function val(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var en = document.documentElement.lang === 'en';
 
-    var nombre   = document.getElementById('cfNombre').value.trim();
-    var empresa  = document.getElementById('cfEmpresa').value.trim();
-    var email    = document.getElementById('cfEmail').value.trim();
-    var telefono = document.getElementById('cfTelefono').value.trim();
     var prodSel  = document.getElementById('cfProducto');
     var producto = prodSel && prodSel.value ? prodSel.options[prodSel.selectedIndex].text : '';
-    var mensaje  = document.getElementById('cfMensaje').value.trim();
 
+    var btnText  = submitBtn.querySelector('.cf-submit-text');
+    var origText = btnText ? btnText.textContent : '';
     submitBtn.disabled = true;
-    submitBtn.querySelector('.cf-submit-text').textContent = en ? 'Sending...' : 'Enviando...';
+    if (btnText) btnText.textContent = en ? 'Sending...' : 'Enviando...';
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
-    var fullMessage =
-      (producto ? ((en ? 'Product/application of interest: ' : 'Producto/aplicación de interés: ') + producto + '\n\n') : '') +
-      mensaje;
-
-    var params = {
-      from_name:    nombre,
-      from_company: empresa,
-      reply_to:     email,
-      phone:        telefono || '—',
-      message:      fullMessage,
+    var payload = {
+      _subject:  cfg.subject || 'Nuevo mensaje desde la web',
+      _template: 'table',
+      _captcha:  'false',
+      _replyto:  val('cfEmail'),
+      'Nombre':   val('cfNombre'),
+      'Empresa':  val('cfEmpresa'),
+      'Correo':   val('cfEmail'),
+      'Teléfono': val('cfTelefono') || '—',
+      'Producto': producto || '—',
+      'Mensaje':  val('cfMensaje'),
     };
 
     function finish(ok) {
       submitBtn.disabled = false;
-      submitBtn.querySelector('.cf-submit-text').textContent = en ? 'Send Request' : 'Enviar Solicitud';
+      if (btnText) btnText.textContent = origText || (en ? 'Send Request' : 'Enviar Solicitud');
       (ok ? successMsg : errorMsg).style.display = 'flex';
       if (ok) form.reset();
     }
 
-    if (isConfigured()) {
-      emailjs.send(cfg.serviceId, cfg.templateId, params)
-        .then(function () { finish(true); })
-        .catch(function (err) { console.error('EmailJS error:', err); finish(false); });
-    } else {
-      // EmailJS aún sin claves → mostrar mensaje de error que guía al correo directo
-      console.warn('EmailJS no configurado: edite js/emailjs-config.js con las claves reales.');
+    // Si aún no se ha puesto el correo destino, avisar en lugar de fallar en silencio.
+    if (!cfg.email || cfg.email.indexOf('REEMPLAZAR') === 0) {
+      console.warn('FormSubmit sin configurar: edite js/form-config.js con el correo destino.');
       finish(false);
+      return;
     }
+
+    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(cfg.email), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) { finish(String(data.success) === 'true'); })
+      .catch(function (err) { console.error('FormSubmit error:', err); finish(false); });
   });
 })();

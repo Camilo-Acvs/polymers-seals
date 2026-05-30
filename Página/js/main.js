@@ -83,17 +83,48 @@ function toggleWidget() {
 
 function submitWidget(e) {
   e.preventDefault();
-  const form = e.target;
-  const name = form.querySelector('input[type="text"]').value;
-  const email = form.querySelector('input[type="email"]').value;
-  const message = form.querySelector('textarea').value;
+  var form = e.target;
+  var en = document.documentElement.lang === 'en';
 
-  const mailtoLink = `mailto:info@polymers-seals.com?subject=Consulta rápida de ${name}&body=Nombre: ${name}%0AEmail: ${email}%0A%0AMensaje:%0A${message}`;
-  window.location.href = mailtoLink;
+  // Correo destino: usa form-config.js si está cargado; si no (resto de páginas),
+  // usa este de respaldo. Al cambiar el correo, actualizar AMBOS sitios.
+  var cfg = window.FORM_CONFIG || {};
+  var email = (cfg.email && cfg.email.indexOf('REEMPLAZAR') !== 0) ? cfg.email : 'camilo.acvs@outlook.com';
 
-  // Reset
-  form.reset();
-  toggleWidget();
+  var nombre  = form.querySelector('input[type="text"]').value.trim();
+  var correo  = form.querySelector('input[type="email"]').value.trim();
+  var mensaje = form.querySelector('textarea').value.trim();
+
+  var btn  = form.querySelector('.widget-submit');
+  var orig = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = en ? 'Sending...' : 'Enviando...'; }
+
+  function restore(text) {
+    if (!btn) return;
+    btn.disabled = false;
+    btn.textContent = text;
+    setTimeout(function () { btn.textContent = orig; }, 3000);
+  }
+
+  fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject:  'Consulta rápida desde Polymers-Seals.com',
+      _template: 'table',
+      _captcha:  'false',
+      _replyto:  correo,
+      'Nombre':  nombre,
+      'Correo':  correo,
+      'Mensaje': mensaje
+    })
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (String(d.success) === 'true') { form.reset(); restore(en ? 'Sent ✓' : 'Enviado ✓'); }
+      else { restore(en ? 'Error, try again' : 'Error, reintenta'); }
+    })
+    .catch(function () { restore(en ? 'Error, try again' : 'Error, reintenta'); });
 }
 
 // Close widget on click outside
