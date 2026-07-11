@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Material de referencia (brochure/catálogo actuales de Canva) — no publicar
+Referencia/
