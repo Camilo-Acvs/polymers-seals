@@ -1,14 +1,12 @@
 /* ══════════════════════════════════════
    POLYMERS SEALS SOLUTIONS
-   Formulario de contacto — FormSubmit
+   Formulario de contacto — Cloudflare Pages Function + Resend
    ══════════════════════════════════════
-   Usa window.FORM_CONFIG (js/form-config.js). El visitante pulsa
-   "Enviar" y el mensaje llega al correo configurado, sin abrir nada y
-   sin backend. Para cambiar el correo destino, ver js/form-config.js.
+   Envía un POST a /api/contact (functions/api/contact.js), que reenvía
+   el correo vía Resend con el dominio verificado. Ver ese archivo para
+   la configuración de RESEND_API_KEY.
 */
 (function () {
-  var cfg = window.FORM_CONFIG || {};
-
   var form = document.getElementById('contactForm');
   if (!form) return;
   var submitBtn  = document.getElementById('cfSubmit');
@@ -24,6 +22,8 @@
     e.preventDefault();
     var en = document.documentElement.lang === 'en';
 
+    if (val('cfHoney')) return; // honeypot: descartar en silencio
+
     var prodSel  = document.getElementById('cfProducto');
     var producto = prodSel && prodSel.value ? prodSel.options[prodSel.selectedIndex].text : '';
 
@@ -35,16 +35,12 @@
     errorMsg.style.display = 'none';
 
     var payload = {
-      _subject:  cfg.subject || 'Nuevo mensaje desde la web',
-      _template: 'table',
-      _captcha:  'false',
-      _replyto:  val('cfEmail'),
-      'Nombre':   val('cfNombre'),
-      'Empresa':  val('cfEmpresa'),
-      'Correo':   val('cfEmail'),
-      'Teléfono': val('cfTelefono') || '—',
-      'Producto': producto || '—',
-      'Mensaje':  val('cfMensaje'),
+      name:    val('cfNombre'),
+      company: val('cfEmpresa'),
+      email:   val('cfEmail'),
+      phone:   val('cfTelefono'),
+      product: producto,
+      message: val('cfMensaje'),
     };
 
     function finish(ok) {
@@ -54,20 +50,13 @@
       if (ok) form.reset();
     }
 
-    // Si aún no se ha puesto el correo destino, avisar en lugar de fallar en silencio.
-    if (!cfg.email || cfg.email.indexOf('REEMPLAZAR') === 0) {
-      console.warn('FormSubmit sin configurar: edite js/form-config.js con el correo destino.');
-      finish(false);
-      return;
-    }
-
-    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(cfg.email), {
+    fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
       .then(function (r) { return r.json(); })
-      .then(function (data) { finish(String(data.success) === 'true'); })
-      .catch(function (err) { console.error('FormSubmit error:', err); finish(false); });
+      .then(function (data) { finish(data.success === true); })
+      .catch(function (err) { console.error('Contact form error:', err); finish(false); });
   });
 })();

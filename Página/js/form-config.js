@@ -23,6 +23,6 @@
    así que con cambiar el "email" aquí, ambos idiomas quedan listos.
    ────────────────────────────────────────────────────────────── */
 window.FORM_CONFIG = {
-  email:   'camilo.acvs@outlook.com',
+  email:   'info@polymers-seals.com',
   subject: 'Nuevo mensaje desde Polymers-Seals.com',
 };

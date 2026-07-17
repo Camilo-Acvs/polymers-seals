@@ -86,11 +86,6 @@ function submitWidget(e) {
   var form = e.target;
   var en = document.documentElement.lang === 'en';
 
-  // Correo destino: usa form-config.js si está cargado; si no (resto de páginas),
-  // usa este de respaldo. Al cambiar el correo, actualizar AMBOS sitios.
-  var cfg = window.FORM_CONFIG || {};
-  var email = (cfg.email && cfg.email.indexOf('REEMPLAZAR') !== 0) ? cfg.email : 'camilo.acvs@outlook.com';
-
   var nombre  = form.querySelector('input[type="text"]').value.trim();
   var correo  = form.querySelector('input[type="email"]').value.trim();
   var mensaje = form.querySelector('textarea').value.trim();
@@ -106,22 +101,14 @@ function submitWidget(e) {
     setTimeout(function () { btn.textContent = orig; }, 3000);
   }
 
-  fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
+  fetch('/api/contact', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      _subject:  'Consulta rápida desde Polymers-Seals.com',
-      _template: 'table',
-      _captcha:  'false',
-      _replyto:  correo,
-      'Nombre':  nombre,
-      'Correo':  correo,
-      'Mensaje': mensaje
-    })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: nombre, email: correo, message: mensaje })
   })
     .then(function (r) { return r.json(); })
     .then(function (d) {
-      if (String(d.success) === 'true') { form.reset(); restore(en ? 'Sent ✓' : 'Enviado ✓'); }
+      if (d.success === true) { form.reset(); restore(en ? 'Sent ✓' : 'Enviado ✓'); }
       else { restore(en ? 'Error, try again' : 'Error, reintenta'); }
     })
     .catch(function () { restore(en ? 'Error, try again' : 'Error, reintenta'); });
