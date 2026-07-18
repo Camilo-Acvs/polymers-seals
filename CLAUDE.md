@@ -6,6 +6,15 @@ https://polymers-seals.com
 ## Estado
 En producción.
 
+## Relación con Rubbercav
+Rubbercav S.A.S. es el nombre anterior de esta misma empresa (Polymers Seals Solutions
+S.A.S. es la marca actual). El dominio rubbercav.com se conserva por su SEO histórico
+(~11 años de tráfico) y nunca se reestructura. El catálogo técnico de este proyecto
+(`Catalogo_Tecnico_Polymers_Seals_Solutions.docx`) es válido también para las fichas
+de producto Oil & Gas de Rubbercav (mismos materiales, misma fabricación) — no para
+sus líneas ajenas a Oil & Gas (automotriz, construcción, etc.). Ver CLAUDE.md de
+Rubbercav para el detalle completo.
+
 ## Stack
 HTML + CSS + Vanilla JS
 

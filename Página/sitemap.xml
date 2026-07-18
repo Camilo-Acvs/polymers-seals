@@ -19,6 +19,78 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://polymers-seals.com/recursos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recursos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recursos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recursos.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/en/recursos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recursos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recursos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recursos.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/recurso-seleccion-elastomeros.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-seleccion-elastomeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-seleccion-elastomeros.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-seleccion-elastomeros.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/en/recurso-seleccion-elastomeros.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-seleccion-elastomeros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-seleccion-elastomeros.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-seleccion-elastomeros.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/recurso-sellos-gas-agrio.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-sellos-gas-agrio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-sellos-gas-agrio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-sellos-gas-agrio.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/en/recurso-sellos-gas-agrio.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-sellos-gas-agrio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-sellos-gas-agrio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-sellos-gas-agrio.html"/>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/recurso-polykran-vs-convencional.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-polykran-vs-convencional.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-polykran-vs-convencional.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-polykran-vs-convencional.html"/>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://polymers-seals.com/en/recurso-polykran-vs-convencional.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/recurso-polykran-vs-convencional.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/recurso-polykran-vs-convencional.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polymers-seals.com/recurso-polykran-vs-convencional.html"/>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://polymers-seals.com/productos.html</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://polymers-seals.com/productos.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://polymers-seals.com/en/productos.html"/>
