@@ -141,8 +141,11 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   background: var(--blue-dark); border-top: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 -8px 24px -12px rgba(2,18,40,.55); overflow: hidden;
   cursor: grab; touch-action: pan-y;
+  user-select: none; -webkit-user-select: none;
 }
-.pk2-dock.is-dragging { cursor: grabbing; user-select: none; }
+.pk2-dock.is-dragging { cursor: grabbing; }
+.pk2-dock, .pk2-dock * { -webkit-user-drag: none; -khtml-user-drag: none; }
+.pk2-dock img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .pk2-row {
   height: 100%; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 90%, transparent);
@@ -152,10 +155,9 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
 .pk2-chip {
   flex: 0 0 auto; display: flex; align-items: center; gap: 10px; height: 64px;
   padding: 0 20px; border-right: 1px solid rgba(255,255,255,.08);
-  transition: background .25s ease; -webkit-user-drag: none;
+  transition: background .25s ease;
 }
 .pk2-dock.is-dragging .pk2-chip { pointer-events: none; }
-.pk2-chip-img img, .pk2-chip picture { pointer-events: none; }
 .pk2-chip:hover { background: rgba(255,255,255,.07); }
 .pk2-chip-img {
   width: 38px; height: 38px; flex: 0 0 auto; background: #fff; border-radius: 6px;

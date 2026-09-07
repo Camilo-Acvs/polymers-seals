@@ -84,6 +84,9 @@
     if (!items.length) return;
     // duplicar una vez para cerrar el ciclo sin salto
     items.forEach(function (it) { track.appendChild(it.cloneNode(true)); });
+    // matar el arrastre nativo de imágenes/enlaces (si no, el navegador se "lleva" la imagen)
+    [].forEach.call(track.querySelectorAll('a, img'), function (el) { el.setAttribute('draggable', 'false'); });
+    dock.addEventListener('dragstart', function (e) { e.preventDefault(); });
 
     if (reduce) {
       var r = dock.querySelector('.pk2-row');
@@ -112,6 +115,8 @@
     }
 
     dock.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      e.preventDefault(); // evita el drag nativo y la selección
       dragging = true; moved = 0; vel = 0;
       startX = lastX = e.clientX; startOffset = offset; lastT = e.timeStamp;
       dock.classList.add('is-dragging');
