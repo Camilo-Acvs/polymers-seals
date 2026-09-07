@@ -12,7 +12,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
     risers.forEach(function (el) { io.observe(el); });
   }
 
@@ -21,9 +21,14 @@
   if (scene) {
     var steps = [].slice.call(scene.querySelectorAll('.pk2-step'));
     var bars = [].slice.call(scene.querySelectorAll('.pk2-scene-progress i b'));
+    var sceneHead = scene.querySelector('.pk2-scene-head');
+    var sticky = scene.querySelector('.pk2-scene-sticky');
     var desktop = window.matchMedia('(min-width: 861px)');
+    var current = -1;
 
     function setActive(idx) {
+      if (idx === current) return;
+      current = idx;
       steps.forEach(function (s, i) { s.classList.toggle('active', i === idx); });
     }
 
@@ -31,24 +36,28 @@
     function update() {
       ticking = false;
       var rect = scene.getBoundingClientRect();
-      var span = rect.height - window.innerHeight;
-      var p = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+      var headH = sceneHead ? sceneHead.offsetHeight : 0;
+      var span = scene.offsetHeight - sticky.offsetHeight - headH;
+      if (span <= 0) return;
+      var p = Math.min(1, Math.max(0, (-rect.top - headH) / span));
       var n = steps.length;
-      var idx = Math.min(n - 1, Math.floor(p * n + 0.00001));
-      setActive(idx);
+      /* los cambios de paso ocurren en el primer 82% del recorrido;
+         el resto mantiene fijo el último paso antes de soltar el sticky */
+      var t = Math.min(0.999999, p / 0.82);
+      setActive(Math.floor(t * n));
       bars.forEach(function (b, i) {
-        var seg = Math.min(1, Math.max(0, p * n - i));
-        b.style.width = (seg * 100) + '%';
+        b.style.width = (Math.min(1, Math.max(0, t * n - i)) * 100) + '%';
       });
     }
     function onScroll() {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }
 
-    var mobileObs = null;
+    var mobObs = null;
     function enableDesktop() {
-      if (mobileObs) { mobileObs.disconnect(); mobileObs = null; }
-      steps.forEach(function (s) { s.classList.remove('active'); });
+      if (mobObs) { mobObs.disconnect(); mobObs = null; }
+      steps.forEach(function (s, i) { s.classList.toggle('active', i === 0); });
+      current = 0;
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);
       update();
@@ -56,10 +65,10 @@
     function enableMobile() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      mobileObs = new IntersectionObserver(function (entries) {
+      mobObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('active'); });
-      }, { threshold: 0.25 });
-      steps.forEach(function (s) { mobileObs.observe(s); });
+      }, { threshold: 0.12, rootMargin: '0px 0px -12% 0px' });
+      steps.forEach(function (s) { mobObs.observe(s); });
     }
 
     function apply() { if (desktop.matches) enableDesktop(); else enableMobile(); }
