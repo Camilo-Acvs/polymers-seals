@@ -12,7 +12,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -14% 0px' });
     risers.forEach(function (el) { io.observe(el); });
   }
 
@@ -76,13 +76,79 @@
     (desktop.addEventListener ? desktop.addEventListener('change', apply) : desktop.addListener(apply));
   }
 
-  /* ── 3. Franja de productos: duplicar para loop continuo ── */
-  document.querySelectorAll('.pk2-track').forEach(function (track) {
+  /* ── 3. Franja de productos: loop continuo + arrastre con dedo/mouse ── */
+  document.querySelectorAll('.pk2-dock').forEach(function (dock) {
+    var track = dock.querySelector('.pk2-track');
+    if (!track) return;
     var items = [].slice.call(track.children);
     if (!items.length) return;
+    // duplicar una vez para cerrar el ciclo sin salto
     items.forEach(function (it) { track.appendChild(it.cloneNode(true)); });
-    if (!reduce) {
-      track.style.setProperty('--dur', Math.max(40, items.length * 2.4) + 's');
+
+    if (reduce) {
+      var r = dock.querySelector('.pk2-row');
+      if (r) { r.style.overflowX = 'auto'; r.style.webkitMaskImage = 'none'; r.style.maskImage = 'none'; }
+      return;
     }
+
+    var half = 0;
+    var secs = Math.max(40, items.length * 2.4); // segundos por vuelta (≈ ritmo previo)
+    var offset = 0, vel = 0;
+    var dragging = false, hovering = false, startX = 0, startOffset = 0, lastX = 0, lastT = 0, moved = 0;
+
+    function measure() { var w = track.scrollWidth / 2; if (w > 20) half = w; }
+
+    function frame() {
+      requestAnimationFrame(frame);
+      if (half < 20) { measure(); return; }
+      var speed = half / (secs * 60);
+      if (!dragging) {
+        if (!hovering) offset -= speed;
+        if (Math.abs(vel) > 0.05) { offset += vel; vel *= 0.9; } else { vel = 0; }
+      }
+      while (offset <= -half) offset += half;
+      while (offset > 0) offset -= half;
+      track.style.transform = 'translate3d(' + offset.toFixed(2) + 'px,0,0)';
+    }
+
+    dock.addEventListener('pointerdown', function (e) {
+      dragging = true; moved = 0; vel = 0;
+      startX = lastX = e.clientX; startOffset = offset; lastT = e.timeStamp;
+      dock.classList.add('is-dragging');
+      try { dock.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    dock.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > moved) moved = Math.abs(dx);
+      offset = startOffset + dx;
+      var dt = e.timeStamp - lastT;
+      if (dt > 0) {
+        var v = (e.clientX - lastX) / dt * 16;
+        vel = Math.max(-46, Math.min(46, v));
+      }
+      lastX = e.clientX; lastT = e.timeStamp;
+    });
+    function end(e) {
+      if (!dragging) return;
+      dragging = false;
+      dock.classList.remove('is-dragging');
+      try { dock.releasePointerCapture(e.pointerId); } catch (_) {}
+    }
+    dock.addEventListener('pointerup', end);
+    dock.addEventListener('pointercancel', end);
+    // si hubo arrastre, no dispares el enlace del chip
+    dock.addEventListener('click', function (e) {
+      if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
+      moved = 0;
+    }, true);
+    dock.addEventListener('mouseenter', function () { hovering = true; });
+    dock.addEventListener('mouseleave', function () { hovering = false; });
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    setTimeout(measure, 500);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measure); }
+
+    requestAnimationFrame(frame);
   });
 })();

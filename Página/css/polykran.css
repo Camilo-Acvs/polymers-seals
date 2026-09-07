@@ -30,6 +30,8 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   line-height: 1; margin: 0 0 16px;
 }
 .pk2-hero h1 sup { font-size: .3em; top: -1em; letter-spacing: 0; }
+.pk2-hero-logo { margin: 0 0 22px; line-height: 0; }
+.pk2-hero-logo img { display: block; width: clamp(220px, 25vw, 300px); height: auto; }
 .pk2-hero-sub {
   font-size: clamp(15px, 1.8vw, 18px); font-weight: 600; line-height: 1.5;
   color: #dae7fb; margin: 0 0 16px;
@@ -138,20 +140,22 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 850; height: 64px;
   background: var(--blue-dark); border-top: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 -8px 24px -12px rgba(2,18,40,.55); overflow: hidden;
+  cursor: grab; touch-action: pan-y;
 }
+.pk2-dock.is-dragging { cursor: grabbing; user-select: none; }
 .pk2-row {
   height: 100%; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 90%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 90%, transparent);
 }
-.pk2-track { display: flex; align-items: center; height: 100%; width: max-content; animation: pk2scroll var(--dur, 90s) linear infinite; }
-.pk2-dock:hover .pk2-track { animation-play-state: paused; }
-@keyframes pk2scroll { to { transform: translateX(-50%); } }
+.pk2-track { display: flex; align-items: center; height: 100%; width: max-content; will-change: transform; }
 .pk2-chip {
   flex: 0 0 auto; display: flex; align-items: center; gap: 10px; height: 64px;
   padding: 0 20px; border-right: 1px solid rgba(255,255,255,.08);
-  transition: background .25s ease;
+  transition: background .25s ease; -webkit-user-drag: none;
 }
+.pk2-dock.is-dragging .pk2-chip { pointer-events: none; }
+.pk2-chip-img img, .pk2-chip picture { pointer-events: none; }
 .pk2-chip:hover { background: rgba(255,255,255,.07); }
 .pk2-chip-img {
   width: 38px; height: 38px; flex: 0 0 auto; background: #fff; border-radius: 6px;
@@ -174,26 +178,49 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
 @media (max-width: 860px) {
   .pk2-tech, .pk2-proc, .pk2-variants { padding: 62px 0; }
   .pk2-head { margin-bottom: 22px; }
-  .pk2-tech-grid { grid-template-columns: 1fr; gap: 26px; justify-items: start; margin-top: 22px; }
-  .pk2-tech-media { max-width: 200px; }
+  .pk2-rise { transform: translateY(34px); }
+
+  /* ── TECNOLOGÍA en móvil: imagen entra con escala + texto escalonado ── */
+  .pk2-tech-grid { grid-template-columns: 1fr; gap: 24px; justify-items: center; margin-top: 22px; }
+  .pk2-tech-media { max-width: 230px; width: 100%; }
+  .pk2-tech-media.pk2-rise { transform: scale(.78); }
+  .pk2-tech-media.pk2-rise.in { transform: none; transition-duration: .85s; }
+  .pk2-tech-body p { max-width: none; }
+
+  /* ── SCENE en móvil: tarjetas con entrada coreografiada ── */
   .pk2-scene { height: auto; overflow: visible; background: #F5F8FC; }
   .pk2-scene-head { padding: 56px 0 4px; }
   .pk2-scene-sticky { position: static; height: auto; display: block; overflow: visible; padding: 26px 0 52px; }
   .pk2-scene-inner { position: static; }
   .pk2-step {
     position: static; inset: auto; height: auto; max-width: none;
-    opacity: 0; transform: translateY(26px);
-    transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1);
-    background: #fff; border: 1px solid var(--border); border-radius: 16px;
-    padding: 28px 22px; margin-bottom: 14px;
+    opacity: 0; transform: translateY(40px) scale(.96);
+    transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+    background: #fff; border: 1px solid var(--border); border-radius: 18px;
+    padding: 30px 24px 32px; margin-bottom: 16px;
+    box-shadow: 0 18px 40px -26px rgba(3,48,109,.35);
   }
   .pk2-step.active { opacity: 1; transform: none; }
   .pk2-step::before {
-    position: static; display: block; z-index: auto;
-    font-size: 40px; line-height: 1; color: var(--blue-mid); opacity: .28; margin-bottom: 4px;
+    position: static; display: block; z-index: auto; margin-bottom: 2px;
+    font-size: 48px; line-height: 1; font-weight: 800; color: var(--blue-mid);
+    opacity: 0; transform: translateX(-10px) scale(.7); transform-origin: left center;
+    transition: opacity .5s ease .06s, transform .55s cubic-bezier(.16,1,.3,1) .06s;
   }
+  .pk2-step.active::before { opacity: .32; transform: none; }
   .pk2-step-eyebrow { margin-bottom: 12px; font-size: 11px; }
-  .pk2-step h3 { font-size: 21px; }
+  .pk2-step-eyebrow span { width: 0; transition: width .5s ease .3s; }
+  .pk2-step.active .pk2-step-eyebrow span { width: 30px; }
+  .pk2-step h3 {
+    font-size: 21px; opacity: 0; transform: translateY(14px);
+    transition: opacity .5s ease .22s, transform .5s ease .22s;
+  }
+  .pk2-step.active h3 { opacity: 1; transform: none; }
+  .pk2-step p {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .5s ease .36s, transform .5s ease .36s;
+  }
+  .pk2-step.active p { opacity: 1; transform: none; }
   .pk2-scene-progress { display: none; }
   .pk2-vgrid { margin-top: 30px; }
 }
@@ -215,9 +242,11 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   body:has(.pk2-dock) .floating-actions { bottom: 74px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pk2-rise { opacity: 1; transform: none; transition: none; }
+  .pk2-rise, .pk2-tech-media, .pk2-tech-body p { opacity: 1 !important; transform: none !important; transition: none !important; }
   .pk2-track { animation: none; }
   .pk2-row { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
   .pk2-hero-media { animation: none; }
-  .pk2-step { opacity: 1; transform: none; }
+  .pk2-step, .pk2-step h3, .pk2-step p, .pk2-step-eyebrow span { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .pk2-step::before { opacity: .3 !important; transform: none !important; }
+  .pk2-step-eyebrow span { width: 30px !important; }
 }
