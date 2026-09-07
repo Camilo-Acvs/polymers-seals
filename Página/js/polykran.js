@@ -92,7 +92,7 @@
     }
 
     var half = 0;
-    var secs = Math.max(40, items.length * 2.4); // segundos por vuelta (≈ ritmo previo)
+    var secs = Math.max(50, items.length * 3); // segundos por vuelta (~20% más lento que antes)
     var offset = 0, vel = 0;
     var dragging = false, hovering = false, startX = 0, startOffset = 0, lastX = 0, lastT = 0, moved = 0;
 
