@@ -1,0 +1,447 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img "Polymers Seals Solutions" [ref=e5]
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Inicio" [ref=e8] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e9]:
+          - link "Productos" [ref=e10] [cursor=pointer]:
+            - /url: productos.html
+        - listitem [ref=e11]:
+          - link "Tecnología POLYKRAN®" [ref=e12] [cursor=pointer]:
+            - /url: polykran.html
+        - listitem [ref=e13]:
+          - link "Recursos" [ref=e14] [cursor=pointer]:
+            - /url: recursos.html
+        - listitem [ref=e15]:
+          - link "Nosotros" [ref=e16] [cursor=pointer]:
+            - /url: nosotros.html
+        - listitem [ref=e17]:
+          - link "Contacto" [ref=e18] [cursor=pointer]:
+            - /url: contacto.html
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - button "ES" [ref=e21] [cursor=pointer]
+          - generic [ref=e22]: "|"
+          - button "EN" [ref=e23] [cursor=pointer]
+        - link "Solicitar Cotización" [ref=e24] [cursor=pointer]:
+          - /url: contacto.html
+  - generic [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]: Tecnología de materiales
+      - heading [level=1] [ref=e29]:
+        - text: POLYKRAN
+        - superscript [ref=e30]: ®
+      - paragraph [ref=e31]: Tecnología de materiales elastoméricos avanzados para mejorar el desempeño en aplicaciones Oil & Gas bajo condiciones extremas.
+      - paragraph [ref=e32]: POLYKRAN® es una tecnología de materiales desarrollada por Polymers Seals Solutions para mejorar el desempeño de componentes elastoméricos sometidos a condiciones severas de operación.
+      - list [ref=e33]:
+        - listitem [ref=e34]: Altas presiones
+        - listitem [ref=e35]: Temperaturas extremas
+        - listitem [ref=e36]: Fricción y desgaste
+        - listitem [ref=e37]: Hidrocarburos, H₂S y químicos agresivos
+    - img "Corte de un sello POLYKRAN® con zoom a su estructura interna reforzada con microfibras de aramida" [ref=e40]
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - generic [ref=e44]: LA TECNOLOGÍA
+      - heading "Una estructura interna reforzada" [level=2] [ref=e45]
+    - generic [ref=e46]:
+      - img "Microfibras de aramida de alta resistencia vistas de cerca" [ref=e48]
+      - paragraph [ref=e50]: Su desarrollo combina elastómeros de alto desempeño con microfibras de aramida de alta resistencia, incorporadas y distribuidas dentro de la matriz elastomérica para generar una estructura interna reforzada, capaz de incrementar la estabilidad mecánica del material sin comprometer la elasticidad requerida para el funcionamiento del sistema de sellado.
+  - generic [ref=e51]:
+    - generic [ref=e52]:
+      - generic [ref=e53]: EL REFUERZO
+      - heading "Aramida (Kevlar®) de alto desempeño para mayor resistencia mecánica y a la extrusión" [level=2] [ref=e54]
+    - generic [ref=e55]:
+      - generic:
+        - generic:
+          - article [ref=e56]:
+            - text: "01"
+            - generic [ref=e57]: Refuerzo interno
+            - heading "Un elemento de refuerzo interno en la matriz" [level=3] [ref=e59]
+            - paragraph [ref=e60]: Las microfibras de aramida (Kevlar®) actúan como un elemento de refuerzo interno dentro de la matriz elastomérica, aportando alta resistencia mecánica, estabilidad térmica y mayor capacidad para soportar esfuerzos de compresión, corte y deformación.
+          - article [ref=e61]:
+            - text: "02"
+            - generic [ref=e62]: Bajo alta presión
+            - heading "Distribuye los esfuerzos y frena la extrusión" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Bajo condiciones de alta presión, esta estructura reforzada contribuye a distribuir los esfuerzos mecánicos a través de la matriz, restringir la deformación excesiva y aumentar la resistencia del material frente a fenómenos de extrusión y daño mecánico.
+          - article [ref=e66]:
+            - text: "03"
+            - generic [ref=e67]: El equilibrio
+            - heading "Conserva la elasticidad y la fuerza de sellado" [level=3] [ref=e69]
+            - paragraph [ref=e70]: Al mismo tiempo, la matriz elastomérica conserva la elasticidad, capacidad de recuperación y conformabilidad necesarias para adaptarse a las superficies de contacto, comprimirse durante la instalación y mantener la fuerza de sellado durante el servicio, logrando un equilibrio entre rigidez estructural, resistencia mecánica y comportamiento elastomérico.
+  - generic [ref=e76]:
+    - generic [ref=e77]:
+      - generic [ref=e78]: LAS TRES VARIANTES
+      - heading "NEKLON®, H-NEKLON® y VIKLON®" [level=2] [ref=e79]
+      - paragraph [ref=e80]: El refuerzo de microfibras de aramida es compatible con distintos polímeros base. Cada variante lo incorpora sobre un tipo de caucho diferente, que aporta distintas características.
+    - generic [ref=e81]:
+      - article [ref=e82]:
+        - generic [ref=e83]: "Base: Nitrilo · NBR"
+        - generic [ref=e84]: NEKLON®
+        - generic [ref=e85]:
+          - generic [ref=e86]: Rango térmico
+          - strong [ref=e87]: −30 a +120 °C
+        - paragraph [ref=e88]: Caucho nitrilo (NBR) con el refuerzo de aramida. Resistente a aceites minerales e hidrocarburos; buena resistencia a extrusión, corte y desgaste.
+        - generic [ref=e89]:
+          - generic [ref=e90]: Aplicación
+          - generic [ref=e91]: Vee packing, stuffing boxes, swab cups y sellos dinámicos en crudo dulce y servicio general.
+      - article [ref=e92]:
+        - generic [ref=e93]: "Base: Nitrilo hidrogenado · HNBR"
+        - generic [ref=e94]: H-NEKLON®
+        - generic [ref=e95]:
+          - generic [ref=e96]: Rango térmico
+          - strong [ref=e97]: −40 a +160 °C
+        - paragraph [ref=e98]: Caucho nitrilo hidrogenado (HNBR) con el refuerzo de aramida. Soporta más temperatura y es compatible con gas agrio (H₂S), donde el NBR no llega.
+        - generic [ref=e99]:
+          - generic [ref=e100]: Aplicación
+          - generic [ref=e101]: Vee packing HPHT, BOP seals, packer elements, stripper rubbers y sellos de wireline en alta presión y temperatura.
+      - article [ref=e102]:
+        - generic [ref=e103]: "Base: FKM · Vitón®"
+        - generic [ref=e104]: VIKLON®
+        - generic [ref=e105]:
+          - generic [ref=e106]: Rango térmico
+          - strong [ref=e107]: −20 a +200 °C
+        - paragraph [ref=e108]: "Caucho fluorado (FKM / Vitón®) con el refuerzo de aramida. La base con más resistencia química y térmica: solventes aromáticos, H₂S severo y CO₂."
+        - generic [ref=e109]:
+          - generic [ref=e110]: Aplicación
+          - generic [ref=e111]: Sellos en pozos HPHT con química agresiva, BOP seals de alta exigencia y completamiento crítico.
+    - generic [ref=e112]:
+      - link "Guía de selección de elastómeros" [ref=e113] [cursor=pointer]:
+        - /url: recurso-seleccion-elastomeros.html
+      - link "Cuándo se justifica el refuerzo con aramida" [ref=e114] [cursor=pointer]:
+        - /url: recurso-polykran-vs-convencional.html
+  - generic [ref=e116]:
+    - generic [ref=e117]:
+      - generic [ref=e118]: FABRICACIÓN
+      - heading "Proceso de fabricación" [level=2] [ref=e119]
+      - paragraph [ref=e120]: Formulamos y fabricamos cada sello en planta, a partir de una muestra física o de un plano.
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - generic [ref=e123]: "1"
+        - generic [ref=e124]:
+          - heading "Formulación" [level=4] [ref=e125]
+          - paragraph [ref=e126]: "Se define el compuesto: elastómero base y contenido de microfibras de aramida, según las condiciones de servicio del pozo."
+      - generic [ref=e127]:
+        - generic [ref=e128]: "2"
+        - generic [ref=e129]:
+          - heading "Mezclado" [level=4] [ref=e130]
+          - paragraph [ref=e131]: Las microfibras de aramida se incorporan y distribuyen dentro de la matriz elastomérica hasta quedar repartidas en toda la masa.
+      - generic [ref=e132]:
+        - generic [ref=e133]: "3"
+        - generic [ref=e134]:
+          - heading "Moldeo y vulcanizado" [level=4] [ref=e135]
+          - paragraph [ref=e136]: El compuesto se moldea con la geometría del sello y se vulcaniza bajo presión y temperatura controladas.
+      - generic [ref=e137]:
+        - generic [ref=e138]: "4"
+        - generic [ref=e139]:
+          - heading "Control y despacho" [level=4] [ref=e140]
+          - paragraph [ref=e141]: Se verifican dimensiones y dureza pieza por pieza antes de despachar el pedido.
+  - generic [ref=e143]:
+    - generic [ref=e144]:
+      - heading "¿Su sello falla por extrusión, desgaste o deformación?" [level=2] [ref=e145]
+      - paragraph [ref=e146]: Cuéntenos las condiciones del pozo y el modo de falla que ve en campo. Le decimos qué variante aplica y le pasamos la cotización.
+    - generic [ref=e148]:
+      - link "Solicitar cotización" [ref=e149] [cursor=pointer]:
+        - /url: contacto.html
+      - link "WhatsApp" [ref=e150] [cursor=pointer]:
+        - /url: https://wa.me/573202599516
+      - link "info@polymers-seals.com" [ref=e151] [cursor=pointer]:
+        - /url: mailto:info@polymers-seals.com
+  - contentinfo [ref=e152]:
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - img "Polymers Seals Solutions" [ref=e155]
+        - paragraph [ref=e156]: Engineered Sealing Solutionsfor the Oil & Gas Industry
+      - generic [ref=e157]:
+        - heading "Navegación" [level=5] [ref=e158]
+        - list [ref=e159]:
+          - listitem [ref=e160]:
+            - link "Inicio" [ref=e161] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=e162]:
+            - link "Productos" [ref=e163] [cursor=pointer]:
+              - /url: productos.html
+          - listitem [ref=e164]:
+            - link "Tecnología POLYKRAN®" [ref=e165] [cursor=pointer]:
+              - /url: polykran.html
+          - listitem [ref=e166]:
+            - link "Recursos" [ref=e167] [cursor=pointer]:
+              - /url: recursos.html
+          - listitem [ref=e168]:
+            - link "Nosotros" [ref=e169] [cursor=pointer]:
+              - /url: nosotros.html
+          - listitem [ref=e170]:
+            - link "Contacto" [ref=e171] [cursor=pointer]:
+              - /url: contacto.html
+      - generic [ref=e172]:
+        - heading "Productos" [level=5] [ref=e173]
+        - list [ref=e174]:
+          - listitem [ref=e175]:
+            - link "Wireline & Slickline" [ref=e176] [cursor=pointer]:
+              - /url: productos.html#wireline
+          - listitem [ref=e177]:
+            - link "Workover & Well Control" [ref=e178] [cursor=pointer]:
+              - /url: productos.html#workover
+          - listitem [ref=e179]:
+            - link "Flowline & Pipeline" [ref=e180] [cursor=pointer]:
+              - /url: productos.html#flowline
+          - listitem [ref=e181]:
+            - link "Vee Packing Systems" [ref=e182] [cursor=pointer]:
+              - /url: productos.html#veepacking
+      - generic [ref=e183]:
+        - heading "Contacto" [level=5] [ref=e184]
+        - paragraph [ref=e185]:
+          - link "info@polymers-seals.com" [ref=e186] [cursor=pointer]:
+            - /url: mailto:info@polymers-seals.com
+        - paragraph [ref=e187]:
+          - link "(+57) 320 259 9516" [ref=e188] [cursor=pointer]:
+            - /url: tel:+573202599516
+        - paragraph [ref=e189]: Bogotá, Colombia
+    - generic [ref=e191]:
+      - paragraph [ref=e192]: © 2025 Polymers Seals Solutions S.A.S. Todos los derechos reservados.
+      - generic [ref=e193]:
+        - button "ES" [ref=e194] [cursor=pointer]
+        - generic [ref=e195]: "|"
+        - button "EN" [ref=e196] [cursor=pointer]
+  - complementary "Productos fabricados con tecnología POLYKRAN®" [ref=e197]:
+    - generic [ref=e199]:
+      - link "Inner Seals" [ref=e200] [cursor=pointer]:
+        - /url: producto-inner-seals.html
+        - generic [ref=e202]:
+          - img "Inner Seals"
+      - link "Inner Seals Multiline" [ref=e204] [cursor=pointer]:
+        - /url: producto-inner-seals-multiline.html
+        - generic [ref=e206]:
+          - img "Inner Seals Multiline"
+      - link "Outer Seals" [ref=e208] [cursor=pointer]:
+        - /url: producto-outer-seals.html
+        - generic [ref=e210]:
+          - img "Outer Seals"
+      - link "Pack Off & Line Wiper Rubber" [ref=e212] [cursor=pointer]:
+        - /url: producto-pack-off-line-wiper.html
+        - generic [ref=e214]:
+          - img "Pack Off & Line Wiper Rubber"
+      - link "Stuffing Box Rubber" [ref=e216] [cursor=pointer]:
+        - /url: producto-stuffing-box-rubber.html
+        - generic [ref=e218]:
+          - img "Stuffing Box Rubber"
+      - link "Oil Saver" [ref=e220] [cursor=pointer]:
+        - /url: producto-oil-saver.html
+        - generic [ref=e222]:
+          - img "Oil Saver"
+      - link "Hammer Union Seals" [ref=e224] [cursor=pointer]:
+        - /url: producto-hammer-union-seals.html
+        - generic [ref=e226]:
+          - img "Hammer Union Seals"
+      - link "Diaphragm" [ref=e228] [cursor=pointer]:
+        - /url: producto-diaphragms.html
+        - generic [ref=e230]:
+          - img "Diaphragm"
+      - link "BOP Seals" [ref=e232] [cursor=pointer]:
+        - /url: producto-bop-seals.html
+        - generic [ref=e234]:
+          - img "BOP Seals"
+      - link "BOP Rams — Ratigan Style" [ref=e236] [cursor=pointer]:
+        - /url: producto-bop-rams-ratigan.html
+        - generic [ref=e238]:
+          - img "BOP Rams — Ratigan Style"
+      - link "Rod Wipers" [ref=e240] [cursor=pointer]:
+        - /url: producto-rod-wipers.html
+        - generic [ref=e242]:
+          - img "Rod Wipers"
+      - link "Regan Rubber Packer Element" [ref=e244] [cursor=pointer]:
+        - /url: producto-regan-packer-element.html
+        - generic [ref=e246]:
+          - img "Regan Rubber Packer Element"
+      - link "Packing Mud Bucket" [ref=e248] [cursor=pointer]:
+        - /url: producto-packing-mud-bucket.html
+        - generic [ref=e250]:
+          - img "Packing Mud Bucket"
+      - link "Victaulic Style Gaskets" [ref=e252] [cursor=pointer]:
+        - /url: producto-victaulic-gaskets.html
+        - generic [ref=e254]:
+          - img "Victaulic Style Gaskets"
+      - link "Packer Elements" [ref=e256] [cursor=pointer]:
+        - /url: producto-packer-elements.html
+        - generic [ref=e258]:
+          - img "Packer Elements"
+      - link "Packer Cups" [ref=e260] [cursor=pointer]:
+        - /url: producto-packer-cups.html
+        - generic [ref=e262]:
+          - img "Packer Cups"
+      - link "Swab Cups" [ref=e264] [cursor=pointer]:
+        - /url: producto-swab-cups.html
+        - generic [ref=e266]:
+          - img "Swab Cups"
+      - link "Stripper Rubber" [ref=e268] [cursor=pointer]:
+        - /url: producto-stripper-rubber.html
+        - generic [ref=e270]:
+          - img "Stripper Rubber"
+      - link "Drill Pipe Wipers" [ref=e272] [cursor=pointer]:
+        - /url: producto-drill-pipe-wipers.html
+        - generic [ref=e274]:
+          - img "Drill Pipe Wipers"
+      - link "Valve Seals" [ref=e276] [cursor=pointer]:
+        - /url: producto-valve-seals.html
+        - generic [ref=e278]:
+          - img "Valve Seals"
+      - link "Cone Packing" [ref=e280] [cursor=pointer]:
+        - /url: producto-cone-packing.html
+        - generic [ref=e282]:
+          - img "Cone Packing"
+      - link "Pipe Rubber Gaskets" [ref=e284] [cursor=pointer]:
+        - /url: producto-pipe-rubber-gaskets.html
+        - generic [ref=e286]:
+          - img "Pipe Rubber Gaskets"
+      - link "Valve Inserts" [ref=e288] [cursor=pointer]:
+        - /url: producto-valve-inserts.html
+        - generic [ref=e290]:
+          - img "Valve Inserts"
+      - link "Pipeline Pigs" [ref=e292] [cursor=pointer]:
+        - /url: producto-pipeline-pigs.html
+        - generic [ref=e294]:
+          - img "Pipeline Pigs"
+      - link "HNBR Vee Packing" [ref=e296] [cursor=pointer]:
+        - /url: producto-hnbr-vee-packing.html
+        - generic [ref=e298]:
+          - img "HNBR Vee Packing"
+      - link "Aramid Fiber Vee Packing" [ref=e300] [cursor=pointer]:
+        - /url: producto-aramid-vee-packing.html
+        - generic [ref=e302]:
+          - img "Aramid Fiber Vee Packing"
+      - link "PTFE Vee Packing" [ref=e304] [cursor=pointer]:
+        - /url: producto-ptfe-vee-packing.html
+        - generic [ref=e306]:
+          - img "PTFE Vee Packing"
+      - link "Vee Packing Sets" [ref=e308] [cursor=pointer]:
+        - /url: producto-vee-packing-sets.html
+        - generic [ref=e310]:
+          - img "Vee Packing Sets"
+      - link "Vee Packing Range" [ref=e312] [cursor=pointer]:
+        - /url: producto-vee-packing-range.html
+        - generic [ref=e314]:
+          - img "Vee Packing Range"
+      - link "Inner Seals" [ref=e316] [cursor=pointer]:
+        - /url: producto-inner-seals.html
+        - generic [ref=e318]:
+          - img "Inner Seals"
+      - link "Inner Seals Multiline" [ref=e320] [cursor=pointer]:
+        - /url: producto-inner-seals-multiline.html
+        - generic [ref=e322]:
+          - img "Inner Seals Multiline"
+      - link "Outer Seals" [ref=e324] [cursor=pointer]:
+        - /url: producto-outer-seals.html
+        - generic [ref=e326]:
+          - img "Outer Seals"
+      - link "Pack Off & Line Wiper Rubber" [ref=e328] [cursor=pointer]:
+        - /url: producto-pack-off-line-wiper.html
+        - generic [ref=e330]:
+          - img "Pack Off & Line Wiper Rubber"
+      - link "Stuffing Box Rubber" [ref=e332] [cursor=pointer]:
+        - /url: producto-stuffing-box-rubber.html
+        - generic [ref=e334]:
+          - img "Stuffing Box Rubber"
+      - link "Oil Saver" [ref=e336] [cursor=pointer]:
+        - /url: producto-oil-saver.html
+        - generic [ref=e338]:
+          - img "Oil Saver"
+      - link "Hammer Union Seals" [ref=e340] [cursor=pointer]:
+        - /url: producto-hammer-union-seals.html
+        - generic [ref=e342]:
+          - img "Hammer Union Seals"
+      - link "Diaphragm" [ref=e344] [cursor=pointer]:
+        - /url: producto-diaphragms.html
+        - generic [ref=e346]:
+          - img "Diaphragm"
+      - link "BOP Seals" [ref=e348] [cursor=pointer]:
+        - /url: producto-bop-seals.html
+        - generic [ref=e350]:
+          - img "BOP Seals"
+      - link "BOP Rams — Ratigan Style" [ref=e352] [cursor=pointer]:
+        - /url: producto-bop-rams-ratigan.html
+        - generic [ref=e354]:
+          - img "BOP Rams — Ratigan Style"
+      - link "Rod Wipers" [ref=e356] [cursor=pointer]:
+        - /url: producto-rod-wipers.html
+        - generic [ref=e358]:
+          - img "Rod Wipers"
+      - link "Regan Rubber Packer Element" [ref=e360] [cursor=pointer]:
+        - /url: producto-regan-packer-element.html
+        - generic [ref=e362]:
+          - img "Regan Rubber Packer Element"
+      - link "Packing Mud Bucket" [ref=e364] [cursor=pointer]:
+        - /url: producto-packing-mud-bucket.html
+        - generic [ref=e366]:
+          - img "Packing Mud Bucket"
+      - link "Victaulic Style Gaskets" [ref=e368] [cursor=pointer]:
+        - /url: producto-victaulic-gaskets.html
+        - generic [ref=e370]:
+          - img "Victaulic Style Gaskets"
+      - link "Packer Elements" [ref=e372] [cursor=pointer]:
+        - /url: producto-packer-elements.html
+        - generic [ref=e374]:
+          - img "Packer Elements"
+      - link "Packer Cups" [ref=e376] [cursor=pointer]:
+        - /url: producto-packer-cups.html
+        - generic [ref=e378]:
+          - img "Packer Cups"
+      - link "Swab Cups" [ref=e380] [cursor=pointer]:
+        - /url: producto-swab-cups.html
+        - generic [ref=e382]:
+          - img "Swab Cups"
+      - link "Stripper Rubber" [ref=e384] [cursor=pointer]:
+        - /url: producto-stripper-rubber.html
+        - generic [ref=e386]:
+          - img "Stripper Rubber"
+      - link "Drill Pipe Wipers" [ref=e388] [cursor=pointer]:
+        - /url: producto-drill-pipe-wipers.html
+        - generic [ref=e390]:
+          - img "Drill Pipe Wipers"
+      - link "Valve Seals" [ref=e392] [cursor=pointer]:
+        - /url: producto-valve-seals.html
+        - generic [ref=e394]:
+          - img "Valve Seals"
+      - link "Cone Packing" [ref=e396] [cursor=pointer]:
+        - /url: producto-cone-packing.html
+        - generic [ref=e398]:
+          - img "Cone Packing"
+      - link "Pipe Rubber Gaskets" [ref=e400] [cursor=pointer]:
+        - /url: producto-pipe-rubber-gaskets.html
+        - generic [ref=e402]:
+          - img "Pipe Rubber Gaskets"
+      - link "Valve Inserts" [ref=e404] [cursor=pointer]:
+        - /url: producto-valve-inserts.html
+        - generic [ref=e406]:
+          - img "Valve Inserts"
+      - link "Pipeline Pigs" [ref=e408] [cursor=pointer]:
+        - /url: producto-pipeline-pigs.html
+        - generic [ref=e410]:
+          - img "Pipeline Pigs"
+      - link "HNBR Vee Packing" [ref=e412] [cursor=pointer]:
+        - /url: producto-hnbr-vee-packing.html
+        - generic [ref=e414]:
+          - img "HNBR Vee Packing"
+      - link "Aramid Fiber Vee Packing" [ref=e416] [cursor=pointer]:
+        - /url: producto-aramid-vee-packing.html
+        - generic [ref=e418]:
+          - img "Aramid Fiber Vee Packing"
+      - link "PTFE Vee Packing" [ref=e420] [cursor=pointer]:
+        - /url: producto-ptfe-vee-packing.html
+        - generic [ref=e422]:
+          - img "PTFE Vee Packing"
+      - link "Vee Packing Sets" [ref=e424] [cursor=pointer]:
+        - /url: producto-vee-packing-sets.html
+        - generic [ref=e426]:
+          - img "Vee Packing Sets"
+      - link "Vee Packing Range" [ref=e428] [cursor=pointer]:
+        - /url: producto-vee-packing-range.html
+        - generic [ref=e430]:
+          - img "Vee Packing Range"
+  - generic [ref=e432]:
+    - button "Contacto rápido" [ref=e433] [cursor=pointer]
+    - link "WhatsApp" [ref=e436] [cursor=pointer]:
+      - /url: https://wa.me/573202599516

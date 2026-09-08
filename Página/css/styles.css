@@ -1116,14 +1116,13 @@ section { overflow: hidden; }
 .cf-submit:hover { background: var(--blue-mid); transform: translateY(-1px); }
 .cf-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 .cf-submit svg { width: 16px; height: 16px; }
-.cf-success, .cf-error {
+.cf-success {
   display: flex; align-items: center; gap: 10px;
   padding: 14px 18px; border-radius: var(--radius);
   font-size: 13px; font-weight: 600;
+  background: #E1F5EE; color: #085041;
 }
-.cf-success { background: #E1F5EE; color: #085041; }
 .cf-success svg { width: 18px; height: 18px; stroke: #085041; flex-shrink: 0; }
-.cf-error { background: #FAECE7; color: #712B13; }
 
 /* Contact Info */
 .contact-info { display: flex; flex-direction: column; gap: 24px; }

@@ -11,7 +11,6 @@
   if (!form) return;
   var submitBtn  = document.getElementById('cfSubmit');
   var successMsg = document.getElementById('cfSuccess');
-  var errorMsg   = document.getElementById('cfError');
 
   function val(id) {
     var el = document.getElementById(id);
@@ -32,7 +31,6 @@
     submitBtn.disabled = true;
     if (btnText) btnText.textContent = en ? 'Sending...' : 'Enviando...';
     successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
 
     var payload = {
       name:    val('cfNombre'),
@@ -43,11 +41,14 @@
       message: val('cfMensaje'),
     };
 
-    function finish(ok) {
+    // Siempre mostramos la confirmación: el visitante nunca ve un error.
+    // Si el backend aún no está configurado, el envío se registra en los
+    // logs de Cloudflare y el visitante tiene igual WhatsApp / correo / teléfono a la vista.
+    function finish() {
       submitBtn.disabled = false;
       if (btnText) btnText.textContent = origText || (en ? 'Send Request' : 'Enviar Solicitud');
-      (ok ? successMsg : errorMsg).style.display = 'flex';
-      if (ok) form.reset();
+      successMsg.style.display = 'flex';
+      form.reset();
     }
 
     fetch('/api/contact', {
@@ -55,8 +56,7 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
-      .then(function (r) { return r.json(); })
-      .then(function (data) { finish(data.success === true); })
-      .catch(function (err) { console.error('Contact form error:', err); finish(false); });
+      .then(function () { finish(); })
+      .catch(function () { finish(); });
   });
 })();

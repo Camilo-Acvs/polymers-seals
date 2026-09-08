@@ -2,5 +2,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Cloudflare / wrangler — cachés locales, nunca publicar
+.wrangler/
+.dev.vars
+
 # Material de referencia (brochure/catálogo actuales de Canva) — no publicar
 Referencia/
