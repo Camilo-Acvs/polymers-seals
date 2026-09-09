@@ -8,3 +8,6 @@ Thumbs.db
 
 # Material de referencia (brochure/catálogo actuales de Canva) — no publicar
 Referencia/
+
+# Playwright MCP — capturas locales de verificación, no publicar
+.playwright-mcp/
