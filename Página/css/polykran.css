@@ -14,9 +14,9 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 .pk2-rise.d3 { transition-delay: .24s; }
 
 /* Cabeceras de sección (más grandes que el default de styles.css) */
-.pk2-head { margin-bottom: 38px; }
+.pk2-head { margin-bottom: 26px; }
 .pk2-scene .section-tag, .pk2-tech .section-tag, .pk2-variants .section-tag,
-.pk2-proc-head .section-tag, .pk2-head .section-tag {
+.pk2-head .section-tag {
   font-size: 12px; letter-spacing: 2.5px; margin-bottom: 14px;
 }
 .pk2-head .section-title {
@@ -62,34 +62,48 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   border: 1px solid rgba(255,255,255,.22); border-radius: 100px;
   padding: 7px 14px; background: rgba(255,255,255,.05);
 }
-/* ── TECNOLOGÍA: párrafo del cliente + strip del proceso + fabricación ── */
+/* ── TECNOLOGÍA: cabecera + proceso interactivo de 4 paneles ── */
 .pk2-tech { padding: 84px 0; background: #F5F8FC; }
 
-/* párrafo del cliente en tarjeta con ícono */
-.pk2-tech-lead {
-  max-width: 780px; margin: 0 0 46px;
-  display: grid; grid-template-columns: 46px 1fr; gap: 20px; align-items: start;
-  background: #fff; border: 1px solid var(--border); border-radius: 16px;
-  padding: 30px 34px;
-}
-.pk2-tech-lead-ico {
-  width: 46px; height: 46px; border-radius: 12px; flex: 0 0 auto;
-  background: var(--blue-dark); color: #fff; display: grid; place-items: center;
-}
-.pk2-tech-lead-ico svg { width: 24px; height: 24px; }
-.pk2-tech-lead p { font-size: clamp(14.5px, 1.5vw, 16.5px); line-height: 1.8; color: var(--text-body); margin: 0; }
-.pk2-tech-lead p::first-line { font-weight: 600; }
+.pk2-flow-hint { margin: 0 0 24px; font-size: 12.5px; font-weight: 700; letter-spacing: .4px; color: var(--blue-mid); }
 
-/* strip del proceso — sin sombra, solo un filo */
-.pk2-tech-strip { margin: 0; }
-.pk2-tech-strip-frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-.pk2-tech-strip img { display: block; width: 100%; height: auto; }
+.pk2-flow-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pk2-flow-panel {
+  appearance: none; -webkit-appearance: none; border: 0; padding: 0; margin: 0; background: none;
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pk2-flow-panel:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 4px; border-radius: 6px; }
+.pk2-flow-img {
+  position: relative; display: block; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--border); aspect-ratio: 3 / 4; background: #eef2f7;
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+.pk2-flow-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pk2-flow-panel:hover .pk2-flow-img {
+  border-color: var(--blue-mid); box-shadow: 0 16px 34px -22px rgba(3, 48, 109, .4);
+}
+.pk2-flow-panel.is-active .pk2-flow-img {
+  border-color: var(--blue-mid);
+  box-shadow: 0 0 0 2px var(--blue-mid), 0 20px 44px -22px rgba(3, 48, 109, .5);
+}
 
-/* bloque "Proceso de fabricación" — bajo el strip */
-.pk2-proc-block { margin-top: 60px; border-top: 1px solid var(--border); padding-top: 52px; }
-.pk2-proc-head { margin-bottom: 4px; }
-.pk2-proc-title { font-size: clamp(23px, 2.9vw, 33px); font-weight: 800; color: var(--blue-dark); line-height: 1.18; margin: 0 0 12px; }
-.pk2-proc-sub { font-size: 15.5px; line-height: 1.6; color: var(--text-body); max-width: 620px; margin: 0; }
+.pk2-flow-cap { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--blue-dark); line-height: 1.25; }
+.pk2-flow-cap b {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+  background: #E7EEF7; color: var(--blue-mid); font-size: 12px; font-weight: 800;
+  display: grid; place-items: center; transition: background .3s ease, color .3s ease;
+}
+.pk2-flow-panel:is(:hover, :focus-visible) .pk2-flow-cap b,
+.pk2-flow-panel.is-active .pk2-flow-cap b { background: var(--blue-dark); color: #fff; }
+
+.pk2-flow-detail {
+  margin-top: 22px; background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  padding: 22px 26px; min-height: 96px; display: flex; align-items: center;
+}
+.pk2-flow-detail-text { margin: 0; font-size: clamp(14.5px, 1.5vw, 16px); line-height: 1.75; color: var(--text-body); max-width: 780px; }
+.pk2-flow-detail-text strong { color: var(--blue-dark); }
+.pk2-flow-note { margin: 14px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-muted); }
 
 /* imagen circular de la fibra — cabecera del scrollytelling de aramida */
 .pk2-scene-fiber { margin: 30px auto 0; width: 220px; }
@@ -136,22 +150,6 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 }
 .pk2-scene-progress i { width: 44px; height: 3px; border-radius: 2px; background: #E1E9F4; overflow: hidden; }
 .pk2-scene-progress i b { display: block; height: 100%; width: 0; background: var(--blue-dark); transition: width .35s ease; }
-
-/* ── PROCESO DE FABRICACIÓN (timeline dentro de .pk2-tech) ── */
-.pk2-proc-track { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
-.pk2-proc-step { position: relative; padding: 0 16px; text-align: center; }
-.pk2-proc-step::before {
-  content: ""; position: absolute; top: 21px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0;
-}
-.pk2-proc-step:first-child::before { left: 50%; }
-.pk2-proc-step:last-child::before { right: 50%; }
-.pk2-proc-num {
-  position: relative; z-index: 1; width: 44px; height: 44px; margin: 0 auto 18px;
-  border-radius: 50%; background: var(--blue-dark); color: #fff;
-  display: grid; place-items: center; font-weight: 800; font-size: 14px;
-}
-.pk2-proc-step h4 { font-size: 15px; font-weight: 700; color: var(--blue-dark); margin: 0 0 8px; }
-.pk2-proc-step p { font-size: 13px; line-height: 1.65; color: var(--text-body); margin: 0; max-width: 260px; margin-left: auto; margin-right: auto; }
 
 /* ── VARIANTS ── */
 .pk2-variants { padding: 96px 0; background: #F5F8FC; }
@@ -230,18 +228,14 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
 }
 @media (max-width: 860px) {
   .pk2-tech, .pk2-variants { padding: 64px 0; }
-  .pk2-head { margin-bottom: 26px; }
+  .pk2-head { margin-bottom: 20px; }
   .pk2-rise { transform: translateY(34px); }
 
   /* ── TECNOLOGÍA en móvil ── */
-  .pk2-tech-lead {
-    grid-template-columns: 40px 1fr; gap: 15px;
-    padding: 22px 20px; margin-bottom: 32px;
-  }
-  .pk2-tech-lead-ico { width: 40px; height: 40px; }
-  .pk2-tech-lead-ico svg { width: 21px; height: 21px; }
-  .pk2-tech-lead p::first-line { font-weight: 700; }
-  .pk2-proc-block { margin-top: 44px; padding-top: 40px; }
+  .pk2-flow-hint { margin-bottom: 18px; }
+  .pk2-flow-row { grid-template-columns: repeat(2, 1fr); gap: 14px 12px; }
+  .pk2-flow-cap { font-size: 13px; }
+  .pk2-flow-detail { min-height: 0; padding: 20px 20px; margin-top: 18px; }
   .pk2-scene-fiber { width: 168px; margin-top: 22px; }
 
   /* ── SCENE en móvil: tarjetas con entrada coreografiada ── */
@@ -281,17 +275,6 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   .pk2-scene-progress { display: none; }
   .pk2-vgrid { margin-top: 30px; }
 }
-@media (max-width: 720px) {
-  .pk2-proc-track { grid-template-columns: 1fr; }
-  .pk2-proc-step { display: grid; grid-template-columns: 44px 1fr; gap: 16px; text-align: left; padding: 0 0 30px; }
-  .pk2-proc-step::before { top: 44px; bottom: -2px; left: 21px; right: auto; width: 2px; height: auto; }
-  .pk2-proc-step:first-child::before { left: 21px; top: 44px; }
-  .pk2-proc-step:last-child::before { display: none; }
-  .pk2-proc-num { margin: 0; }
-  .pk2-proc-body { padding-top: 9px; }
-  .pk2-proc-step h4 { text-align: left; }
-  .pk2-proc-step p { text-align: left; max-width: none; margin: 0; }
-}
 @media (max-width: 640px) {
   .pk2-chip { padding: 0 13px; gap: 8px; }
   .pk2-chip-img { width: 30px; height: 30px; }
@@ -307,7 +290,7 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   .pk2-scene-head { padding: 46px 0 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pk2-rise, .pk2-tech-lead p { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .pk2-rise { opacity: 1 !important; transform: none !important; transition: none !important; }
   .pk2-track { animation: none; }
   .pk2-row { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
   .pk2-step, .pk2-step h3, .pk2-step p, .pk2-step-eyebrow span { opacity: 1 !important; transform: none !important; transition: none !important; }

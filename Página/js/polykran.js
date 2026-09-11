@@ -156,4 +156,28 @@
 
     requestAnimationFrame(frame);
   });
+
+  /* ── 4. Proceso interactivo: paneles + detalle sincronizado ── */
+  document.querySelectorAll('.pk2-flow').forEach(function (flow) {
+    var panels = [].slice.call(flow.querySelectorAll('.pk2-flow-panel'));
+    var out = flow.querySelector('.pk2-flow-detail-text');
+    if (!panels.length || !out) return;
+
+    function activate(panel) {
+      panels.forEach(function (p) {
+        var on = p === panel;
+        p.classList.toggle('is-active', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      var title = panel.getAttribute('data-title') || '';
+      var text = panel.getAttribute('data-text') || '';
+      out.innerHTML = (title ? '<strong>' + title + '.</strong> ' : '') + text;
+    }
+
+    panels.forEach(function (p) {
+      p.addEventListener('mouseenter', function () { activate(p); });
+      p.addEventListener('focus', function () { activate(p); });
+      p.addEventListener('click', function () { activate(p); });
+    });
+  });
 })();
