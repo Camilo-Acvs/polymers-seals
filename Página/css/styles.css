@@ -88,9 +88,7 @@ section { overflow: hidden; }
   transform: scaleX(0); transition: transform 0.2s ease;
 }
 .nav-link:hover, .nav-link.active { color: var(--blue-dark); }
-.nav-link.active { font-weight: 800; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
-.nav-link.active::after { height: 3px; }
 .nav-actions { display: flex; align-items: center; gap: 16px; }
 
 /* Language toggle */
@@ -545,7 +543,7 @@ section { overflow: hidden; }
   }
   .nav-links li:last-child .nav-link { border-bottom: none; }
   .nav-link::after { display: none; }
-  .nav-link.active { color: var(--blue-dark); font-weight: 800; }
+  .nav-link.active { color: var(--blue-dark); }
   .hamburger { display: flex; }
   .btn-nav {
     font-size: 11px; padding: 8px 14px; letter-spacing: 0.3px;

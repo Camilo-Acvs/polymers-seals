@@ -131,10 +131,10 @@ document.addEventListener('click', (e) => {
 // que ya trae el HTML apuntando a la sección padre (Productos, Recursos, etc.),
 // en vez de borrarla.
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-const navLinks = document.querySelectorAll('.nav-link');
-const hasExactMatch = Array.from(navLinks).some(link => link.getAttribute('href') === currentPath);
+const navLinkEls = document.querySelectorAll('.nav-link');
+const hasExactMatch = Array.from(navLinkEls).some(link => link.getAttribute('href') === currentPath);
 if (hasExactMatch) {
-  navLinks.forEach(link => {
+  navLinkEls.forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === currentPath);
   });
 }
