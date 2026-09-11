@@ -125,8 +125,16 @@ document.addEventListener('click', (e) => {
 });
 
 // ── ACTIVE NAV LINK ──
+// Solo recalculamos si hay una coincidencia exacta de archivo (ej. index.html,
+// productos.html). En páginas hijas sin link propio en el nav (producto-*.html,
+// recurso-*.html) no hay match exacto, así que respetamos la clase "active"
+// que ya trae el HTML apuntando a la sección padre (Productos, Recursos, etc.),
+// en vez de borrarla.
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-link').forEach(link => {
-  const href = link.getAttribute('href');
-  link.classList.toggle('active', href === currentPath);
-});
+const navLinks = document.querySelectorAll('.nav-link');
+const hasExactMatch = Array.from(navLinks).some(link => link.getAttribute('href') === currentPath);
+if (hasExactMatch) {
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === currentPath);
+  });
+}
