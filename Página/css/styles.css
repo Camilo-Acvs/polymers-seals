@@ -228,18 +228,18 @@ section { overflow: hidden; }
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-tag {
   display: inline-block;
-  font-size: 14px; font-weight: 700; letter-spacing: 3px;
+  font-size: 25px; font-weight: 700; letter-spacing: 3px;
   color: var(--blue-mid); text-transform: uppercase;
   margin-bottom: 12px;
 }
 .section-tag.light { color: rgba(255,255,255,0.6); }
 .section-title {
-  font-size: clamp(24px, 3vw, 36px); font-weight: 800;
+  font-size: 20px; font-weight: 800;
   color: var(--blue-dark); line-height: 1.2;
   letter-spacing: -0.3px; margin-bottom: 14px;
 }
 .section-subtitle {
-  font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+  font-size: 15px; color: var(--text-muted); max-width: 560px; margin: 0 auto;
 }
 
 /* ══════════════════════════════════════
@@ -584,7 +584,7 @@ section { overflow: hidden; }
 
   /* SECTION HEADERS */
   .section-header { margin-bottom: 40px; }
-  .section-tag { font-size: 9px; letter-spacing: 2.5px; }
+  .section-tag { font-size: 22px; letter-spacing: 2.5px; }
   .section-subtitle { font-size: 14px; }
 
   /* PRODUCT LINES */
@@ -800,7 +800,7 @@ section { overflow: hidden; }
   .hero-content { padding: 0 14px; }
   .stat-number { font-size: 22px; }
   .stats-container { gap: 16px 12px; padding: 0 14px; }
-  .section-title { font-size: 22px; }
+  .section-title { font-size: 18px; }
   .pk-hero-title { font-size: 36px; letter-spacing: 0.5px; }
   .polykran-logo { font-size: 32px; letter-spacing: 1px; }
   .page-hero-title { font-size: 22px; }
@@ -1218,9 +1218,9 @@ section { overflow: hidden; }
 .pd-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: start; margin-top: 22px; }
 .pd-media { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-md); }
 .pd-media img { width: 100%; height: auto; border-radius: 4px; }
-.pd-cat { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-mid); background: var(--blue-light); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
-.pd-title { font-size: 36px; font-weight: 800; color: var(--blue-dark); line-height: 1.15; margin-bottom: 16px; }
-.pd-desc { font-size: 16px; color: var(--text-body); line-height: 1.8; margin-bottom: 22px; }
+.pd-cat { display: inline-block; font-size: 25px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-mid); background: var(--blue-light); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+.pd-title { font-size: 20px; font-weight: 800; color: var(--blue-dark); line-height: 1.15; margin-bottom: 16px; }
+.pd-desc { font-size: 15px; color: var(--text-body); line-height: 1.8; margin-bottom: 22px; }
 .pd-materials { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
 .pd-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .pd-cta .btn-primary { background: var(--blue-dark); color: #fff; }
@@ -1248,7 +1248,8 @@ section { overflow: hidden; }
 
 @media (max-width: 860px) {
   .pd-grid { grid-template-columns: 1fr; gap: 28px; }
-  .pd-title { font-size: 28px; }
+  .pd-cat { font-size: 20px; }
+  .pd-title { font-size: 17px; }
   .pd-twocol { grid-template-columns: 1fr; }
 }
 
