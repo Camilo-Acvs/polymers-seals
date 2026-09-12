@@ -17,7 +17,7 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 .pk2-head { margin-bottom: 26px; }
 .pk2-scene .section-tag, .pk2-tech .section-tag, .pk2-variants .section-tag,
 .pk2-head .section-tag {
-  font-size: 12px; letter-spacing: 2.5px; margin-bottom: 14px;
+  font-size: 15px; letter-spacing: 2.5px; margin-bottom: 14px;
 }
 .pk2-head .section-title {
   font-size: clamp(28px, 4vw, 44px); line-height: 1.14; margin-bottom: 0; max-width: 680px;
@@ -26,7 +26,7 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   font-size: clamp(23px, 2.9vw, 33px); line-height: 1.22; margin-bottom: 0; max-width: 820px;
 }
 .pk2-variants .section-title { font-size: clamp(25px, 3.1vw, 38px); line-height: 1.18; }
-.pk2-variants .section-subtitle { font-size: 15.5px; line-height: 1.6; }
+.pk2-variants .section-subtitle { font-size: 16.5px; line-height: 1.6; }
 
 /* ── HERO ── */
 .pk2-hero {
@@ -58,14 +58,14 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 }
 .pk2-hero-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; justify-content: center; }
 .pk2-hero-tags li {
-  font-size: 11.5px; font-weight: 600; letter-spacing: .3px; color: #d4e2f7;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .3px; color: #d4e2f7;
   border: 1px solid rgba(255,255,255,.22); border-radius: 100px;
   padding: 7px 14px; background: rgba(255,255,255,.05);
 }
 /* ── TECNOLOGÍA: cabecera + proceso interactivo de 4 paneles ── */
 .pk2-tech { padding: 84px 0; background: #F5F8FC; }
 
-.pk2-flow-hint { margin: 0 0 24px; font-size: 12.5px; font-weight: 700; letter-spacing: .4px; color: var(--blue-mid); }
+.pk2-flow-hint { margin: 0 0 24px; font-size: 13.5px; font-weight: 700; letter-spacing: .4px; color: var(--blue-mid); }
 
 .pk2-flow-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .pk2-flow-panel {
@@ -88,10 +88,10 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   box-shadow: 0 0 0 2px var(--blue-mid), 0 20px 44px -22px rgba(3, 48, 109, .5);
 }
 
-.pk2-flow-cap { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--blue-dark); line-height: 1.25; }
+.pk2-flow-cap { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: var(--blue-dark); line-height: 1.25; }
 .pk2-flow-cap b {
   flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
-  background: #E7EEF7; color: var(--blue-mid); font-size: 12px; font-weight: 800;
+  background: #E7EEF7; color: var(--blue-mid); font-size: 13px; font-weight: 800;
   display: grid; place-items: center; transition: background .3s ease, color .3s ease;
 }
 .pk2-flow-panel:is(:hover, :focus-visible) .pk2-flow-cap b,
@@ -103,7 +103,7 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 }
 .pk2-flow-detail-text { margin: 0; font-size: clamp(14.5px, 1.5vw, 16px); line-height: 1.75; color: var(--text-body); max-width: 780px; }
 .pk2-flow-detail-text strong { color: var(--blue-dark); }
-.pk2-flow-note { margin: 14px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-muted); }
+.pk2-flow-note { margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: var(--text-muted); }
 
 /* imagen circular de la fibra — cabecera del scrollytelling de aramida */
 .pk2-scene-fiber { margin: 30px auto 0; width: 220px; }
@@ -135,9 +135,8 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
 }
 .pk2-step-eyebrow {
   display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
-  font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--blue-mid);
+  font-size: 15px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--blue-mid);
 }
-.pk2-step-eyebrow span { width: 30px; height: 2px; background: var(--blue-mid); }
 .pk2-step h3 { font-size: clamp(25px, 3.3vw, 40px); font-weight: 800; color: var(--blue-dark); line-height: 1.16; margin: 0 0 16px; }
 .pk2-step p { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; color: var(--text-body); margin: 0; }
 
@@ -149,18 +148,18 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, border-color .4s ease;
 }
 .pk2-vcard:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -26px rgba(3,48,109,.42); border-color: var(--blue-mid); }
-.pk2-vbase { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.pk2-vbase { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
 .pk2-vname { font-size: 27px; font-weight: 800; color: var(--blue-dark); letter-spacing: 1px; margin-bottom: 14px; }
 .pk2-vtemp {
   display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
   padding: 9px 14px; margin-bottom: 16px; background: #F4F7FB; border-radius: 9px;
 }
-.pk2-vtemp span { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-mid); }
-.pk2-vtemp strong { font-size: 15px; font-weight: 800; color: var(--blue-dark); white-space: nowrap; }
-.pk2-vdesc { font-size: 13.5px; line-height: 1.7; color: var(--text-body); margin-bottom: 18px; }
+.pk2-vtemp span { font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-mid); }
+.pk2-vtemp strong { font-size: 16px; font-weight: 800; color: var(--blue-dark); white-space: nowrap; }
+.pk2-vdesc { font-size: 14.5px; line-height: 1.7; color: var(--text-body); margin-bottom: 18px; }
 .pk2-vrow { border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px; }
-.pk2-vrow-k { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 5px; }
-.pk2-vrow-v { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+.pk2-vrow-k { font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 5px; }
+.pk2-vrow-v { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
 
 /* imagen de corte por variante, al pie de cada pk2-vcard */
 .pk2-vshot-card { margin: 20px 0 0; text-align: center; }
@@ -169,15 +168,15 @@ html:has(.pk2-hero), body:has(.pk2-hero) { overflow-x: clip; }
   border: 1px solid var(--border); border-radius: 12px;
   box-shadow: 0 20px 40px -24px rgba(3,48,109,.35);
 }
-.pk2-vshot-card figcaption { margin-top: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: .3px; color: var(--text-muted); }
+.pk2-vshot-card figcaption { margin-top: 10px; font-size: 12.5px; font-weight: 600; letter-spacing: .3px; color: var(--text-muted); }
 .pk2-vshot-placeholder {
   aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center;
   background: repeating-linear-gradient(135deg, #F4F7FB, #F4F7FB 10px, #EDF3FA 10px, #EDF3FA 20px);
   border: 1px dashed var(--border); border-radius: 12px; padding: 12px;
-  font-size: 11.5px; font-weight: 600; line-height: 1.5; letter-spacing: .2px; color: var(--text-muted); text-align: center;
+  font-size: 12.5px; font-weight: 600; line-height: 1.5; letter-spacing: .2px; color: var(--text-muted); text-align: center;
 }
 .pk2-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 44px; }
-.pk2-links a { font-size: 13px; font-weight: 600; color: var(--blue-mid); border: 1px solid var(--border); border-radius: 100px; padding: 9px 20px; transition: var(--transition); }
+.pk2-links a { font-size: 14px; font-weight: 600; color: var(--blue-mid); border: 1px solid var(--border); border-radius: 100px; padding: 9px 20px; transition: var(--transition); }
 .pk2-links a:hover { background: var(--blue-dark); color: #fff; border-color: var(--blue-dark); }
 
 /* ── DOCK de productos: franja fija al pie ── */
@@ -211,7 +210,7 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   padding: 3px; display: grid; place-items: center;
 }
 .pk2-chip-img img { width: 100%; height: 100%; object-fit: contain; }
-.pk2-chip-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .2px; white-space: nowrap; }
+.pk2-chip-name { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); letter-spacing: .2px; white-space: nowrap; }
 
 /* ── responsive ── */
 @media (max-width: 1024px) {
@@ -272,7 +271,6 @@ body:has(.pk2-dock) .floating-actions { bottom: 82px; }
   .pk2-rise { opacity: 1 !important; transform: none !important; transition: none !important; }
   .pk2-track { animation: none; }
   .pk2-row { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-  .pk2-step, .pk2-step h3, .pk2-step p, .pk2-step-eyebrow span { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .pk2-step, .pk2-step h3, .pk2-step p { opacity: 1 !important; transform: none !important; transition: none !important; }
   .pk2-step::before { opacity: .3 !important; transform: none !important; }
-  .pk2-step-eyebrow span { width: 30px !important; }
 }
